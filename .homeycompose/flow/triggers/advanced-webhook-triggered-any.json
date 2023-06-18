@@ -1,0 +1,47 @@
+{
+  "title": {
+    "en": "Webhook triggered with any event"
+  },
+  "tokens": [
+    {
+      "type": "string",
+      "name": "event",
+      "title": {
+        "en": "Event ID"
+      },
+      "example": {
+        "en": "The triggered event ID"
+      }
+    },
+    {
+      "type": "string",
+      "name": "headers",
+      "title": {
+        "en": "Headers"
+      },
+      "example": {
+        "en": "The HTTP request headers serialised as json string"
+      }
+    },
+    {
+      "type": "string",
+      "name": "query",
+      "title": {
+        "en": "Query"
+      },
+      "example": {
+        "en": "The HTTP request query parameters serialised as json string"
+      }
+    },
+    {
+      "type": "string",
+      "name": "body",
+      "title": {
+        "en": "Body"
+      },
+      "example": {
+        "en": "The HTTP request body as string"
+      }
+    }
+  ]
+}

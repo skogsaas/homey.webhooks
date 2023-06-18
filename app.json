@@ -1,0 +1,415 @@
+{
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
+  "id": "skogsaas.webhooks",
+  "version": "1.0.0",
+  "compatibility": ">=5.0.0",
+  "sdk": 3,
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "Advanced Webhooks"
+  },
+  "description": {
+    "en": "Advanced webhooks with full request body support"
+  },
+  "category": [
+    "internet"
+  ],
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Marcus Skogsaas"
+  },
+  "brandColor": "#f4502a",
+  "source": "https://github.com/skogsaas/homey.webhooks",
+  "bugs": {
+    "url": "https://github.com/skogsaas/homey.webhooks/issues"
+  },
+  "flow": {
+    "triggers": [
+      {
+        "title": {
+          "en": "Webhook triggered with any event"
+        },
+        "tokens": [
+          {
+            "type": "string",
+            "name": "event",
+            "title": {
+              "en": "Event ID"
+            },
+            "example": {
+              "en": "The triggered event ID"
+            }
+          },
+          {
+            "type": "string",
+            "name": "headers",
+            "title": {
+              "en": "Headers"
+            },
+            "example": {
+              "en": "The HTTP request headers serialised as json string"
+            }
+          },
+          {
+            "type": "string",
+            "name": "query",
+            "title": {
+              "en": "Query"
+            },
+            "example": {
+              "en": "The HTTP request query parameters serialised as json string"
+            }
+          },
+          {
+            "type": "string",
+            "name": "body",
+            "title": {
+              "en": "Body"
+            },
+            "example": {
+              "en": "The HTTP request body as string"
+            }
+          }
+        ],
+        "id": "advanced-webhook-triggered-any"
+      },
+      {
+        "title": {
+          "en": "Webhook triggered with any event for each item in JSON array"
+        },
+        "hint": {
+          "en": "Will try to parse the HTTP body as a JSON array, and trigger for each item item in the array.\n\nEx: [\"a\", \"b\", \"c\"] will result in three triggered events with the item tag set to a, b, c."
+        },
+        "tokens": [
+          {
+            "type": "string",
+            "name": "event",
+            "title": {
+              "en": "Event ID"
+            },
+            "example": {
+              "en": "The triggered event ID"
+            }
+          },
+          {
+            "type": "string",
+            "name": "headers",
+            "title": {
+              "en": "Headers"
+            },
+            "example": {
+              "en": "The HTTP request headers serialised as json string"
+            }
+          },
+          {
+            "type": "string",
+            "name": "query",
+            "title": {
+              "en": "Query"
+            },
+            "example": {
+              "en": "The HTTP request query parameters serialised as json string"
+            }
+          },
+          {
+            "type": "string",
+            "name": "body",
+            "title": {
+              "en": "Body"
+            },
+            "example": {
+              "en": "The HTTP request body as string"
+            }
+          },
+          {
+            "type": "string",
+            "name": "item",
+            "title": {
+              "en": "Array item"
+            },
+            "example": {
+              "en": "JSON array item as string"
+            }
+          }
+        ],
+        "id": "advanced-webhook-triggered-any-json-array"
+      },
+      {
+        "title": {
+          "en": "Webhook triggered with any event for each property in JSON object"
+        },
+        "hint": {
+          "en": "Will try to parse the HTTP body as a JSON object, and trigger for each property in the object.\n\nEx: { \"hello\": 123, \"world\": 456 } will result in two triggered events where the first will have the property tag set to \"hello\" and the value tag set to \"123\"."
+        },
+        "tokens": [
+          {
+            "type": "string",
+            "name": "event",
+            "title": {
+              "en": "Event ID"
+            },
+            "example": {
+              "en": "The triggered event ID"
+            }
+          },
+          {
+            "type": "string",
+            "name": "headers",
+            "title": {
+              "en": "Headers"
+            },
+            "example": {
+              "en": "The HTTP request headers serialised as json string"
+            }
+          },
+          {
+            "type": "string",
+            "name": "query",
+            "title": {
+              "en": "Query"
+            },
+            "example": {
+              "en": "The HTTP request query parameters serialised as json string"
+            }
+          },
+          {
+            "type": "string",
+            "name": "body",
+            "title": {
+              "en": "Body"
+            },
+            "example": {
+              "en": "The HTTP request body as string"
+            }
+          },
+          {
+            "type": "string",
+            "name": "property",
+            "title": {
+              "en": "Property name"
+            },
+            "example": {
+              "en": "JSON object property name"
+            }
+          },
+          {
+            "type": "string",
+            "name": "value",
+            "title": {
+              "en": "Property value"
+            },
+            "example": {
+              "en": "JSON object property value as string"
+            }
+          }
+        ],
+        "id": "advanced-webhook-triggered-any-json-object"
+      },
+      {
+        "title": {
+          "en": "Webhook triggered with event"
+        },
+        "titleFormatted": {
+          "en": "Webhook triggered with [[event]]"
+        },
+        "hint": {
+          "en": "Add the query parameter `event` to the webhook url to specify the exact target of the webhook."
+        },
+        "args": [
+          {
+            "type": "text",
+            "name": "event",
+            "title": {
+              "en": "Event ID"
+            },
+            "placeholder": {
+              "en": "Event ID"
+            }
+          }
+        ],
+        "tokens": [
+          {
+            "type": "string",
+            "name": "headers",
+            "title": {
+              "en": "Headers"
+            },
+            "example": {
+              "en": "The HTTP request headers serialised as json string"
+            }
+          },
+          {
+            "type": "string",
+            "name": "query",
+            "title": {
+              "en": "Query"
+            },
+            "example": {
+              "en": "The HTTP request query parameters serialised as json string"
+            }
+          },
+          {
+            "type": "string",
+            "name": "body",
+            "title": {
+              "en": "Body"
+            },
+            "example": {
+              "en": "The HTTP request body as string"
+            }
+          }
+        ],
+        "id": "advanced-webhook-triggered-event"
+      },
+      {
+        "title": {
+          "en": "Webhook triggered with event for each item in JSON array"
+        },
+        "titleFormatted": {
+          "en": "Webhook triggered with [[event]] for each item in JSON array"
+        },
+        "hint": {
+          "en": "Add the query parameter `event` to the webhook url to specify the exact target of the webhook.\n\nWill try to parse the HTTP body as a JSON array, and trigger for each item item in the array.\n\nEx: [\"a\", \"b\", \"c\"] will result in three triggered events with the item tag set to a, b, c."
+        },
+        "args": [
+          {
+            "type": "text",
+            "name": "event",
+            "title": {
+              "en": "Event ID"
+            },
+            "placeholder": {
+              "en": "Event ID"
+            }
+          }
+        ],
+        "tokens": [
+          {
+            "type": "string",
+            "name": "headers",
+            "title": {
+              "en": "Headers"
+            },
+            "example": {
+              "en": "The HTTP request headers serialised as json string"
+            }
+          },
+          {
+            "type": "string",
+            "name": "query",
+            "title": {
+              "en": "Query"
+            },
+            "example": {
+              "en": "The HTTP request query parameters serialised as json string"
+            }
+          },
+          {
+            "type": "string",
+            "name": "body",
+            "title": {
+              "en": "Body"
+            },
+            "example": {
+              "en": "The HTTP request body as string"
+            }
+          },
+          {
+            "type": "string",
+            "name": "item",
+            "title": {
+              "en": "Array item"
+            },
+            "example": {
+              "en": "JSON array item as string"
+            }
+          }
+        ],
+        "id": "advanced-webhook-triggered-event-json-array"
+      },
+      {
+        "title": {
+          "en": "Webhook triggered with event for each property in JSON object"
+        },
+        "titleFormatted": {
+          "en": "Webhook triggered with [[event]] for each property in JSON object"
+        },
+        "hint": {
+          "en": "Add the query parameter `event` to the webhook url to specify the exact target of the webhook.\n\nWill try to parse the HTTP body as a JSON object, and trigger for each property in the object.\n\nEx: { \"hello\": 123, \"world\": 456 } will result in two triggered events where the first will have the property tag set to \"hello\" and the value tag set to \"123\"."
+        },
+        "args": [
+          {
+            "type": "text",
+            "name": "event",
+            "title": {
+              "en": "Event ID"
+            },
+            "placeholder": {
+              "en": "Event ID"
+            }
+          }
+        ],
+        "tokens": [
+          {
+            "type": "string",
+            "name": "headers",
+            "title": {
+              "en": "Headers"
+            },
+            "example": {
+              "en": "The HTTP request headers serialised as json string"
+            }
+          },
+          {
+            "type": "string",
+            "name": "query",
+            "title": {
+              "en": "Query"
+            },
+            "example": {
+              "en": "The HTTP request query parameters serialised as json string"
+            }
+          },
+          {
+            "type": "string",
+            "name": "body",
+            "title": {
+              "en": "Body"
+            },
+            "example": {
+              "en": "The HTTP request body as string"
+            }
+          },
+          {
+            "type": "string",
+            "name": "property",
+            "title": {
+              "en": "Property name"
+            },
+            "example": {
+              "en": "JSON object property name"
+            }
+          },
+          {
+            "type": "string",
+            "name": "value",
+            "title": {
+              "en": "Property value"
+            },
+            "example": {
+              "en": "JSON object property value as string"
+            }
+          }
+        ],
+        "id": "advanced-webhook-triggered-event-json-object"
+      }
+    ]
+  }
+}
