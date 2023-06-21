@@ -4,5 +4,8 @@
   },
   "1.0.1": {
     "en": "Removed JSON splitting after Homey certification review. Array and object splitting will probably trigger flow rate limiting."
+  },
+  "1.0.2": {
+    "en": "Updated README"
   }
 }
