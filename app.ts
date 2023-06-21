@@ -2,28 +2,16 @@ import Homey from 'homey';
 
 class App extends Homey.App {
   private readonly filteredHeaders = ["Authorization"];
-  private readonly filteredQueries = ["homey", "event"];
+  private readonly filteredQueries = ["homey"];
 
   async onInit() {
     const id = Homey.env.WEBHOOK_ID;
     const secret = Homey.env.WEBHOOK_SECRET;
 
-    const flowAny = this.homey.flow.getTriggerCard('advanced-webhook-triggered-any');
-    const flowEvent = this.homey.flow.getTriggerCard('advanced-webhook-triggered-event');
-    const flowAnyJsonArray = this.homey.flow.getTriggerCard('advanced-webhook-triggered-any-json-array');
-    const flowAnyJsonObject = this.homey.flow.getTriggerCard('advanced-webhook-triggered-any-json-object');
-    const flowEventJsonArray = this.homey.flow.getTriggerCard('advanced-webhook-triggered-event-json-array');
-    const flowEventJsonObject = this.homey.flow.getTriggerCard('advanced-webhook-triggered-event-json-object');
-    
+    const flowAny = this.homey.flow.getTriggerCard('webhook-triggered-any');
+    const flowEvent = this.homey.flow.getTriggerCard('webhook-triggered-event');
+
     flowEvent.registerRunListener(async (args, state) => {
-      return args.event === state.event;
-    });
-
-    flowEventJsonArray.registerRunListener(async (args, state) => {
-      return args.event === state.event;
-    });
-
-    flowEventJsonObject.registerRunListener(async (args, state) => {
       return args.event === state.event;
     });
 
@@ -62,26 +50,6 @@ class App extends Homey.App {
       
       flowEvent.trigger(tokens, { event: args.query.event })
         .catch(this.error);
-
-      if(Array.isArray(args.body))
-      {
-        args.body.forEach((element: any) => {
-          flowAnyJsonArray.trigger({ ...tokens, item: element });
-          flowEventJsonArray.trigger({ ...tokens, item: element }, { event: args.query.event });
-        });
-      }
-
-      if(typeof args.body === 'object' &&
-        !Array.isArray(args.body) &&
-        args.body !== null)
-      {
-        Object.keys(args.body).forEach(property => {
-          const value = JSON.stringify(args.body[property]);
-
-          flowAnyJsonObject.trigger({ ...tokens, property, value });
-          flowEventJsonObject.trigger({ ...tokens, property, value }, { event: args.query.event });
-        });
-      }
     });
   }
 

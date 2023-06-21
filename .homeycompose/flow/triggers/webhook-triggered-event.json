@@ -1,7 +1,13 @@
 {
-  "title": { "en": "Webhook triggered with event" },
-  "titleFormatted": { "en": "Webhook triggered with [[event]]" },
-  "hint": { "en": "Add the query parameter `event` to the webhook url to specify the exact target of the webhook." },
+  "title": { 
+    "en": "Webhook triggered with event" 
+  },
+  "titleFormatted": { 
+    "en": "Webhook triggered with [[event]]" 
+  },
+  "hint": { 
+    "en": "See app settings for webhook url and info regarding the &event=[...] query parameter" 
+  },
   "args": [
     {
       "type": "text",
@@ -18,7 +24,7 @@
         "en": "Headers"
       },
       "example": {
-        "en": "The HTTP request headers serialised as json string"
+        "en": "HTTP headers as json string"
       }
     },
     {
@@ -28,7 +34,7 @@
         "en": "Query"
       },
       "example": {
-        "en": "The HTTP request query parameters serialised as json string"
+        "en": "HTTP query parameters as json string"
       }
     },
     {
@@ -38,7 +44,7 @@
         "en": "Body"
       },
       "example": {
-        "en": "The HTTP request body as string"
+        "en": "HTTP body as string"
       }
     }
   ]

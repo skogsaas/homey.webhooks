@@ -7,10 +7,10 @@
     "local"
   ],
   "name": {
-    "en": "Advanced Webhooks"
+    "en": "Webhooks"
   },
   "description": {
-    "en": "Advanced webhooks with full request body support"
+    "en": "Webhooks with full access to request headers, query and body"
   },
   "category": [
     "internet"

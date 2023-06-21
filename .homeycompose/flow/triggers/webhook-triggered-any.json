@@ -2,6 +2,9 @@
   "title": {
     "en": "Webhook triggered with any event"
   },
+  "hint": {
+    "en": "See app settings for webhook url"
+  },
   "tokens": [
     {
       "type": "string",
@@ -10,7 +13,7 @@
         "en": "Event ID"
       },
       "example": {
-        "en": "The triggered event ID"
+        "en": "Event ID"
       }
     },
     {
@@ -20,7 +23,7 @@
         "en": "Headers"
       },
       "example": {
-        "en": "The HTTP request headers serialised as json string"
+        "en": "HTTP headers as json string"
       }
     },
     {
@@ -30,7 +33,7 @@
         "en": "Query"
       },
       "example": {
-        "en": "The HTTP request query parameters serialised as json string"
+        "en": "HTTP query parameters as json string"
       }
     },
     {
@@ -40,7 +43,7 @@
         "en": "Body"
       },
       "example": {
-        "en": "The HTTP request body as string"
+        "en": "HTTP body as string"
       }
     }
   ]
